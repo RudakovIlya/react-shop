@@ -73,7 +73,7 @@ export const Shop = () => {
   return (
     <Container fixed style={{ flex: "1", paddingTop: "150px" }}>
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
-      {isLoading ? <GoodsList goods={goods} addToCart={addToCart} /> : <Preloader />}
+      <GoodsList isLoading={isLoading} goods={goods} addToCart={addToCart} />
       {isShow && (
         <BasketList
           orders={order}
