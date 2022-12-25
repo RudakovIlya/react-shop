@@ -50,7 +50,7 @@ body {
   position: fixed;
   top: 8.5%;
   right: 8%;
-  animation: alert 500ms linear;
+  animation: alert 500ms ease-in-out;
 }
 
 @keyframes alert {
