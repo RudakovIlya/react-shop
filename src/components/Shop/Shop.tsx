@@ -4,7 +4,6 @@ import { API_KEY, API_URL } from "../../config";
 import axios from "axios";
 import { GoodsList } from "./GoodsList/GoodsList";
 import { GoodsItemType } from "./GoodsList/GoodsItem/GoodsItem";
-import Preloader from "../Preloader/Preloader";
 import { Cart } from "../Cart/Cart";
 import { BasketList } from "../Cart/BasketList/BasketList";
 import { Alerts } from "../Alert/Alert";
@@ -84,7 +83,6 @@ export const Shop = () => {
         />
       )}
       {alertName && <Alerts name={alertName} closeAlert={closeAlert} />}
-
       {isShow && <div onClick={handleBasketShow} className="background"></div>}
     </Container>
   );

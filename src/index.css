@@ -48,8 +48,8 @@ body {
 
 .alert {
   position: fixed;
-  top: 8.5%;
-  right: 8%;
+  top: 80px;
+  right: 100px;
   animation: alert 500ms ease-in-out;
 }
 
@@ -59,7 +59,7 @@ body {
     opacity: 0;
   }
   to {
-    top: 8.5%;
+    top: 80px;
     opacity: 1;
   }
 }
