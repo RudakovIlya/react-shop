@@ -1,20 +1,21 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Paper from "@mui/material/Paper";
+import {useAppDispatch, useAppSelector} from "../../store/hooks";
+import {showBasketAC} from "../../store/actions";
 
-type CartPropsType = {
-  quantity: number;
-  handleBasketShow: () => void;
-};
+export const Cart = () => {
 
-export const Cart = (props: CartPropsType) => {
-  const { quantity, handleBasketShow } = props;
+    const quantity = useAppSelector(state => state.order.length)
 
-  return (
-    <div onClick={handleBasketShow} style={{ position: "fixed", top: "5rem", right: 40, cursor: "pointer" }}>
-      <Paper style={{ padding: 10 }} elevation={6}>
-        <ShoppingCartOutlinedIcon />
-        {quantity ? <span>{quantity}</span> : null}
-      </Paper>
-    </div>
-  );
+    const dispatch = useAppDispatch();
+
+    return (
+        <div onClick={() => dispatch(showBasketAC())}
+             style={{position: "fixed", top: "5rem", right: 40, cursor: "pointer"}}>
+            <Paper style={{padding: 10}} elevation={6}>
+                <ShoppingCartOutlinedIcon/>
+                {quantity ? <span>{quantity}</span> : null}
+            </Paper>
+        </div>
+    );
 };
