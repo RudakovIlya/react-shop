@@ -16,17 +16,22 @@ export const Shop = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        axios
-            .get(API_URL, {
-                headers: {
-                    Authorization: API_KEY,
-                },
-            })
-            .then(response => {
-                dispatch(setGoodsAC(response.data.featured))
+        try {
+            axios
+                .get(API_URL, {
+                    headers: {
+                        Authorization: API_KEY,
+                    },
+                })
+                .then(response => {
+                    dispatch(setGoodsAC(response.data.featured))
+                }).catch(error => {
+                console.log(error)
             });
-        // eslint-disable-next-line
-    }, []);
+        } catch (error) {
+        }
+
+    }, [dispatch]);
 
     useEffect(() => {
         isShow && (document.body.style.overflow = "hidden");
