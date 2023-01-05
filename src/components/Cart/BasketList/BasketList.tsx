@@ -7,7 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import Button from "@mui/material/Button";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../../store/hooks";
 import {showBasketAC} from "../../../store/actions";
 
@@ -16,7 +16,9 @@ export const BasketList = () => {
 
     const orders = useAppSelector((state) => state.order)
     const dispatch = useAppDispatch();
-    const totalPrice = orders.reduce((accum, order) => (accum + order.price) * order.quantity, 0);
+    const totalPrice = useMemo(() => {
+        return orders.reduce((accum, order) => (accum + order.price) * order.quantity, 0)
+    }, [orders]);
 
     const [buy, setBuy] = useState<boolean>(false);
 

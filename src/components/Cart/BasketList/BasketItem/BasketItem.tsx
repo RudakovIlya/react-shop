@@ -10,12 +10,13 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import {GoodsItemType} from "../../../../store/reducer";
 import {useAppDispatch} from "../../../../store/hooks";
 import {addQuantityAC, removeFromCartAC, removeQuantityAC} from "../../../../store/actions";
+import {memo} from "react";
 
 type BasketItemPropsType = {
     order: GoodsItemType;
 };
 
-export const BasketItem = (props: BasketItemPropsType) => {
+export const BasketItem = memo((props: BasketItemPropsType) => {
     const {
         order: {name, price, quantity, id},
     } = props;
@@ -57,4 +58,4 @@ export const BasketItem = (props: BasketItemPropsType) => {
             <ListItemText primary={`${name} x ${quantity} = ${price * quantity} руб  `}/>
         </ListItem>
     );
-};
+});

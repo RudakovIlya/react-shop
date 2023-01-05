@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {FC, memo} from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,9 +13,8 @@ type GoodsItemPropsType = {
     good: GoodsItemType;
 };
 
-export const GoodsItem: FC<GoodsItemPropsType> = ({good}) => {
+export const GoodsItem: FC<GoodsItemPropsType> = memo(({good}) => {
     const {name, description, price, full_background} = good;
-
     const dispatch = useAppDispatch();
 
     return (
@@ -53,4 +52,4 @@ export const GoodsItem: FC<GoodsItemPropsType> = ({good}) => {
             </div>
         </Card>
     );
-};
+});
