@@ -13,6 +13,7 @@ import {setGoodsAC, showBasketAC} from "../../store/actions";
 export const Shop = () => {
 
     const {isShow, alertName} = useAppSelector((state) => state)
+
     const dispatch = useAppDispatch();
 
     useEffect(() => {

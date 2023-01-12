@@ -14,7 +14,9 @@ type GoodsItemPropsType = {
 };
 
 export const GoodsItem: FC<GoodsItemPropsType> = memo(({good}) => {
+
     const {name, description, price, full_background} = good;
+
     const dispatch = useAppDispatch();
 
     return (

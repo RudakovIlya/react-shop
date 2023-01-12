@@ -1,4 +1,5 @@
-import {compose, createStore} from "redux";
+import {compose, createStore, applyMiddleware} from "redux";
+import thunk from "redux-thunk";
 import {reducer} from "./reducer";
 
 declare global {
@@ -9,7 +10,7 @@ declare global {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore(reducer, composeEnhancers());
+export const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 export type AppDispatchType = typeof store.dispatch
 

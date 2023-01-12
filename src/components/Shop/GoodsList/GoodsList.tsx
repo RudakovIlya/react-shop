@@ -5,7 +5,8 @@ import {useAppSelector} from "../../../store/hooks";
 
 export const GoodsList = () => {
 
-    const {goods, isLoading} = useAppSelector((state) => state)
+    const goods = useAppSelector((state) => state.goods)
+    const isLoading = useAppSelector((state) => state.isLoading)
 
     const goodsItems = (!isLoading ? Array.from(new Array(12)) : goods).map((good, index) => {
         return good ? (
